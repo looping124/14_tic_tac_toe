@@ -10,4 +10,8 @@ class Player
   def player_change_name(new_name)
     @player_name = new_name
   end
+
+  def player_display_name
+    puts  @player_name
+  end
 end

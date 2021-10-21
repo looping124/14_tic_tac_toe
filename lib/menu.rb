@@ -1,5 +1,5 @@
 class Menu
-  
+  attr_accessor :player1, :player2
   def initialize()
   end
 
@@ -20,11 +20,12 @@ class Menu
     puts "Veuillez entrer le nom du Joueur 1 : ".center(70)
     print ">"
     player1_name = gets.chomp
-    player1 = Player.new(player1_name)
+    @player1 = Player.new(player1_name)
     puts "Veuillez entrer le nom du Joueur 2 : ".center(70)
     print ">"
     player2_name = gets.chomp
-    player2 = Player.new(player2_name)
+    @player2 = Player.new(player2_name)
+    return [@player1,@player2]
   end
 
   def display_menu_game()
