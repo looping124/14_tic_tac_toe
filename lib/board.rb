@@ -13,6 +13,7 @@ class Board
     @c3 = BoardCase.new()
     #affichage de la grille (vide du coup)
     self.display
+    #création d'un tableau pour compter les cases déja jouées
     @taken_case_array =[]
   end
 
@@ -20,9 +21,11 @@ class Board
   def turn1(player_choice)
     case player_choice
     when "a1","7"
+      #on check si la case est déja jouée
       if @taken_case_array.include?(@a1)
         return false
       else
+      #on change l'étatde la case à 1 et on l'ajoute au tableau des cases déja jouées
         @a1.state=1
         @taken_case_array <<@a1
       end
@@ -176,6 +179,7 @@ class Board
   end
 
   def is_there_a_winner?
+    #on vérifie si 3 cases alignées ont le même état et qu'il est different de 0, cela voudrait dire qu'on a un gagnant.
     if @a1.state == @a2.state && @a2.state== @a3.state && @a3.state !=0
       return @a1.state
     elsif @b1.state == @b2.state && @b2.state== @b3.state && @b3.state !=0
@@ -193,6 +197,7 @@ class Board
     elsif @a3.state == @b2.state && @b2.state== @c1.state && @c1.state !=0
       return @a3.state
     else
+      #si aps de gagnant :
       return false
     end
   end

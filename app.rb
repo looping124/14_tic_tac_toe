@@ -8,6 +8,5 @@ require_relative 'lib/board'
 require_relative 'lib/boardcase'
 
 
-
+#Tout simplement :
 game01 = Game.new()
-# board = Board.new

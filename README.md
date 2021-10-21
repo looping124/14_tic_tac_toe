@@ -1,2 +1,3 @@
-Ceci est un dossier pour un projet ruby initialisé depuis le programme /home/looping/00_ruby_dir_creator.rb 
- 00_ruby_dir_creator.rb v0.1
+Bonjour,
+Projet TIC TAC TOE réalisé lors de la formation fullstack à THP
+Il sagit du jeu du morpion jouable entre 2 joueurs humains dans le terminal.
