@@ -1,8 +1,8 @@
 class Player
-  attr_accessor :player_name
+  attr_accessor :player_name, :player_score
   def initialize(player_name)
     @player_name = player_name
-    @score = 0
+    @player_score = 0
     # puts @score.class
     puts "Joueur créé : #{@player_name}"
   end

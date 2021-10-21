@@ -25,7 +25,6 @@ class Board
       else
         @a1.state=1
         @taken_case_array <<@a1
-        print @taken_case_array
       end
     when "a2","8"
       if @taken_case_array.include?(@a2)
@@ -33,7 +32,6 @@ class Board
       else
         @a2.state=1
         @taken_case_array <<@a2
-        print @taken_case_array
       end
     when "a3","9"
       if @taken_case_array.include?(@a3)
@@ -41,7 +39,6 @@ class Board
       else
         @a3.state=1
         @taken_case_array <<@a3
-        print @taken_case_array
       end
     when "b1","4"
       if @taken_case_array.include?(@b1)
@@ -49,7 +46,6 @@ class Board
       else
         @b1.state=1
         @taken_case_array <<@b1
-        print @taken_case_array
       end
     when "b2","5"
       if @taken_case_array.include?(@b2)
@@ -57,7 +53,6 @@ class Board
       else
         @b2.state=1
         @taken_case_array <<@b2
-        print @taken_case_array
       end
     when "b3","6"
       if @taken_case_array.include?(@b3)
@@ -65,7 +60,6 @@ class Board
       else
         @b3.state=1
         @taken_case_array <<@b3
-        print @taken_case_array
       end
     when "c1","1"
       if @taken_case_array.include?(@c1)
@@ -73,7 +67,6 @@ class Board
       else
         @c1.state=1
         @taken_case_array <<@c1
-        print @taken_case_array
       end
     when "c2","2"
       if @taken_case_array.include?(@c2)
@@ -81,7 +74,6 @@ class Board
       else
         @c2.state=1
         @taken_case_array <<@c2
-        print @taken_case_array
       end
     when "c3","3"
       if @taken_case_array.include?(@c3)
@@ -89,7 +81,6 @@ class Board
       else
         @c3.state=1
         @taken_case_array <<@c3
-        print @taken_case_array
       end
     else
       return false
@@ -104,7 +95,6 @@ class Board
       else
         @a1.state=2
         @taken_case_array <<@a1
-        print @taken_case_array
       end
     when "a2","8"
       if @taken_case_array.include?(@a2)
@@ -112,7 +102,6 @@ class Board
       else
         @a2.state=2
         @taken_case_array <<@a2
-        print @taken_case_array
       end
     when "a3","9"
       if @taken_case_array.include?(@a3)
@@ -120,7 +109,6 @@ class Board
       else
         @a3.state=2
         @taken_case_array <<@a3
-        print @taken_case_array
       end
     when "b1","4"
       if @taken_case_array.include?(@b1)
@@ -128,7 +116,6 @@ class Board
       else
         @b1.state=2
         @taken_case_array <<@b1
-        print @taken_case_array
       end
     when "b2","5"
       if @taken_case_array.include?(@b2)
@@ -136,7 +123,6 @@ class Board
       else
         @b2.state=2
         @taken_case_array <<@b2
-        print @taken_case_array
       end
     when "b3","6"
       if @taken_case_array.include?(@b3)
@@ -144,7 +130,6 @@ class Board
       else
         @b3.state=2
         @taken_case_array <<@b3
-        print @taken_case_array
       end
     when "c1","1"
       if @taken_case_array.include?(@c1)
@@ -152,7 +137,6 @@ class Board
       else
         @c1.state=2
         @taken_case_array <<@c1
-        print @taken_case_array
       end
     when "c2","2"
       if @taken_case_array.include?(@c2)
@@ -160,7 +144,6 @@ class Board
       else
         @c2.state=2
         @taken_case_array <<@c2
-        print @taken_case_array
       end
     when "c3","3"
       if @taken_case_array.include?(@c3)
@@ -168,7 +151,6 @@ class Board
       else
         @c3.state=2
         @taken_case_array <<@c3
-        print @taken_case_array
       end
     else
       return false

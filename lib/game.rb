@@ -3,6 +3,7 @@ class Game
   attr_accessor :players_array
   attr_accessor :player1 ,:player2
   def initialize()
+    @game_number=1
     system('clear')
     print "+"
     print "-"*80
@@ -27,22 +28,24 @@ class Game
     @players_array = [@player1,@player2]
     self.new_game
   end
-  
-  def start
-  end
 
   def new_game
-    puts "Nouvelle partie :"
+    puts "Nouvelle partie, #{@player1.player_name} joue les X et #{@player2.player_name} joue les O :"
     @board = Board.new
     while is_game_still_on? == 0
-      self.round
+       if @game_number.odd?
+        self.round_odd
+      else
+        self.round_even
+      end
     end
   end
 
 
 
-  def round
+  def round_odd
     #au tour du joueur 1
+    
     puts "#{@player1.player_name}, où veux tu jouer ?"
     print ">"
     player_choice = gets.chomp
@@ -75,6 +78,41 @@ class Game
     end
   end
 
+  def round_even
+    #au tour du joueur 1
+    
+    puts "#{@player2.player_name}, où veux tu jouer ?"
+    print ">"
+    player_choice = gets.chomp
+    testtest = @board.turn2(player_choice)
+    while testtest == false
+      puts "mauvais choix #{@player2.player_name}, où veux tu jouer ?"
+      print ">"
+      player_choice = gets.chomp
+      testtest = @board.turn2(player_choice)
+    end
+    #au tour du joueur 2 si la partie n'est pas terminée
+    if self.is_game_still_on? == 0
+      puts "#{@player1.player_name}, où veux tu jouer ?"
+      print ">"
+      player_choice = gets.chomp
+      testtest = @board.turn1(player_choice)
+      while testtest == false
+        puts "mauvais choix #{@player1.player_name}, où veux tu jouer ?"
+        print ">"
+        player_choice = gets.chomp
+        testtest = @board.turn1(player_choice)
+      end
+    end
+    if self.is_game_still_on? == 1
+      self.end(1)
+    elsif self.is_game_still_on? == 2
+      self.end(2)
+    elsif self.is_game_still_on? == 3
+      self.end(3)
+    end
+  end
+
 
   def is_game_still_on?
     if @board.is_there_a_winner? == 1
@@ -94,16 +132,29 @@ class Game
       puts "match nul"
     elsif result == 1
       puts "#{@player1.player_name} a gagné la partie !"
+      @player1.player_score += 1
     elsif result == 2
       puts "#{@player2.player_name} a gagné la partie !"
+      @player2.player_score += 1
     else
       puts "bug"
     end
+    puts
+    puts "Score de #{@player1.player_name} : #{@player1.player_score}"
+    puts "Score de #{@player2.player_name} : #{@player2.player_score}"
+    puts
     puts "Voulez vous rejouer ? oui (o) ou non (n)"
 
     again = gets.chomp
+    until again == "o" || again =="n"
+      puts "Voulez vous rejouer ? oui (o) ou non (n)"
+
+      again = gets.chomp
+    end
     if again == "o"
-      game = NewGame.new()
+      @game_number += 1
+      system("clear")
+      self.new_game
     else
     end
 
@@ -112,23 +163,3 @@ class Game
 
 end
 
-# class NewGame < Game
-#   def initialize
-#     system('clear')
-#     print "+"
-#     print "-"*80
-#     puts "+"
-#     print "|"
-#     print "Bonjour et bien venue dans TIC TAC TOE".center(80)
-#     puts "|"
-#     print "|"
-#     print "2 joueurs vont s'affronter".center(80)
-#     puts "|"
-#     print "+"
-#     print "-"*80
-#     puts "+"
-#     puts "Toujours  contre "
-#   end
-#   game = Game.new
-#   game.new_game
-# end
